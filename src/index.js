@@ -3,56 +3,41 @@ import ReactDOM from "react-dom/client"
 
 import "./index.css"
 
-const firstBook = {
-  author: "Jordan Moore",
-  title: "Interesting Facts For Curious Minds",
-  img: "./images/book-1.jpg",
-}
+// data
+const books = [
+  {
+    author: "Jordan Moore",
+    title: "Interesting Facts For Curious Minds",
+    img: "./images/book-1.jpg",
+    id: 1,
+  },
 
-const secondBook = {
-  author: "James Clear",
-  title: "Atomic Habits",
-  img: "https://images-na.ssl-images-amazon.com/images/I/81wgcld4wxL._AC_UL900_SR900,600_.jpg",
-}
+  {
+    author: "James Clear",
+    title: "Atomic Habits",
+    img: "https://images-na.ssl-images-amazon.com/images/I/81wgcld4wxL._AC_UL900_SR900,600_.jpg",
+    id: 2,
+  },
+]
 
-// const author = "Jordan Moore"
-// const title = "Interesting Facts For Curious Minds"
-// const img = "./images/book-1.jpg"
-
-/*
-// parameters
-const someFunc = (param1, param2) => {
-  console.log(param1, param2)
-}
-// arguments
-someFunc("job", "developer")
-*/
-
-// This is the PARENT component
-// props being PASSED from parent to child component
+/**
+ * 1. parent component
+ * 2. map() function iterates over array elements
+ * 3. includes <Book /> components with props
+ */
 const BookList = () => {
   return (
     <section className="booklist">
-      <Book
-        author={firstBook.author}
-        title={firstBook.title}
-        img={firstBook.img}
-      />
-      <Book
-        author={secondBook.author}
-        title={secondBook.title}
-        img={secondBook.img}
-      />
+      {books.map(book => {
+        const { img, title, author, id } = book
+        return <Book key={id} img={img} title={title} author={author} />
+      })}
     </section>
   )
 }
 
-// This is the CHILD component
-// props being RECEIVED from parent to child component
+// child component that is called in the parent component
 const Book = ({ img, title, author }) => {
-  // console.log(props)
-  // const { img, title, author } = props
-
   return (
     <article className="book">
       <img src={img} alt={title} />
