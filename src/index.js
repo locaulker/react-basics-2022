@@ -9,15 +9,15 @@ const books = [
     author: "Jordan Moore",
     title: "Interesting Facts For Curious Minds",
     img: "./images/book-1.jpg",
-    id: 1
+    id: 1,
   },
 
   {
     author: "James Clear",
     title: "Atomic Habits",
     img: "https://images-na.ssl-images-amazon.com/images/I/81wgcld4wxL._AC_UL900_SR900,600_.jpg",
-    id: 2
-  }
+    id: 2,
+  },
 ]
 
 /**
@@ -38,7 +38,10 @@ const BookList = () => {
 }
 
 const EventExamples = () => {
-  const handleFormInput = () => {
+  const handleFormInput = e => {
+    console.log(e)
+    console.log(e.target.name)
+    console.log(e.target.value)
     console.log("handle form input")
   }
 
@@ -46,9 +49,14 @@ const EventExamples = () => {
     alert("handle button click")
   }
 
+  const handleFormSubmission = e => {
+    e.preventDefault()
+    console.log("form submitted")
+  }
+
   return (
     <section>
-      <form>
+      <form onSubmit={handleFormSubmission}>
         <h2>Typical Form</h2>
         <input
           type="text"
