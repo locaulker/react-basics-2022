@@ -45,27 +45,32 @@ const EventExamples = () => {
     console.log("handle form input")
   }
 
-  const handleButtonClick = () => {
-    alert("handle button click")
-  }
+  // const handleButtonClick = () => {
+  //   alert("handle button click")
+  // }
 
-  const handleFormSubmission = e => {
-    e.preventDefault()
-    console.log("form submitted")
-  }
+  // const handleFormSubmission = e => {
+  //   e.preventDefault()
+  //   console.log("form submitted")
+  // }
 
   return (
     <section>
-      <form onSubmit={handleFormSubmission}>
+      <form>
         <h2>Typical Form</h2>
         <input
           type="text"
-          onChange={handleFormInput}
+          onChange={e => console.log(e.target.value)}
           name="example"
           style={{ margin: "1rem 0" }}
         />
+        <button type="submit">Submit</button>
+        <div>
+          <button onClick={() => console.log("Clicked Me!")} type="button">
+            Click Me
+          </button>
+        </div>
       </form>
-      <button onClick={handleButtonClick}>click me</button>
     </section>
   )
 }
