@@ -38,7 +38,7 @@ const BookList = () => {
 
 // child component that is called in the parent component
 const Book = props => {
-  const { img, title, author } = props
+  const { img, title, author } = props.book
   console.log(props)
 
   return (
